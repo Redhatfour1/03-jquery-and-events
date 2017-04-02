@@ -63,11 +63,10 @@ articleView.handleMainNav = function () {
     2. Fade in the single .tab-content section that is
     associated with the .tab element's data-content attribute.
     */
-    console.log($(this).data());
     $('.tab-content').hide();
     $('#' + $(this).data('content')).fadeIn('slow');
-  
- });
+
+  });
   $('.main-nav .tab:first').click();
 };
 
@@ -79,9 +78,16 @@ articleView.setTeasers = function() {
   1. Prevent the default action of a link.
   2. Reveal everything in that particular article now.
   3. Hide that read-on link!
-
   // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
   */
+  $('.read-on').on('click', function(e){
+    e.preventDefault();
+    console.log(e.target);
+    $(this).siblings('section.article-body').children().show();
+    $(this).hide();
+  })
+  
+
 };
 
 // TODO: Invoke all of the above functions (I mean, methods!):
